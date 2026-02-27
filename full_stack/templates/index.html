@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Linear Regression ML App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 400px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+
+        .accuracy {
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Linear Regression Model</h2>
+
+        <div class="accuracy">
+            Model Accuracy: {{ accuracy }}%
+        </div>
+
+        <form action="/predict" method="post">
+            <input type="number" step="any" name="val" 
+                   placeholder="Enter a value" 
+                   value="{{ last_val if last_val else '' }}" 
+                   required>
+            <br>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                Prediction: {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
