@@ -1,4 +1,4 @@
 a=5
-b=4
-c=a+b
-print("Sum is:", c)
+b=20
+c=a-b
+print("Subtract is:", c)
